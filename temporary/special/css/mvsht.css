@@ -1,0 +1,25 @@
+.ngbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0,120,215,0.5);
+}
+
+.ngbar_item {
+    float: left;
+}
+
+.ngbar_item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    height: 48px;
+    width: 48px;
+    text-decoration: none;
+}
+
+.ngbar_item a:hover {
+    background-color: rgba(0,120,215,0.75);
+}
