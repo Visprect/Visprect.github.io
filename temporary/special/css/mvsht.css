@@ -1,3 +1,4 @@
+/* 导航栏 */
 .ngbar {
     list-style-type: none;
     margin: 0;
@@ -6,10 +7,17 @@
     background-color: rgba(0,120,215,0.5);
 }
 
+/* 导航栏 按钮 */
 .ngbar_item {
     float: left;
 }
 
+/* 导航栏 活动按钮 */
+.ngbar_item_lit {
+    background-color: rgba(25,145,240,0.5);
+}
+
+/* 导航栏 按钮链接 */
 .ngbar_item a {
     display: block;
     color: white;
@@ -20,6 +28,7 @@
     text-decoration: none;
 }
 
+/* 导航栏 链接鼠标悬浮 */
 .ngbar_item a:hover {
     background-color: rgba(0,120,215,0.75);
 }
