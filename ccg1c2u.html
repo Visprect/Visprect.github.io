@@ -1,0 +1,2826 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+
+    <link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext'
+        rel='stylesheet' type='text/css' />
+
+    <!-- Neg Bar Style -->
+
+    <link rel="stylesheet" href="css/mvsht.css" type="text/css" />
+
+    <!--Java Script-->
+
+    <script src="js/mvevent.js" type="text/javascript"></script>
+
+        <style type='text/css'>
+            html {
+                overflow-x: initial !important;
+            }
+
+            :root {
+                --bg-color: #ffffff;
+                --text-color: #333333;
+                --select-text-bg-color: #B5D6FC;
+                --select-text-font-color: auto;
+                --monospace: "Lucida Console", Consolas, "Courier", monospace;
+                --title-bar-height: 20px;
+            }
+
+            .mac-os-11 {
+                --title-bar-height: 28px;
+            }
+
+            html {
+                font-size: 14px;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            body {
+                margin: 0px;
+                padding: 0px;
+                height: auto;
+                inset: 0px;
+                font-size: 1rem;
+                line-height: 1.42857;
+                overflow-x: hidden;
+                background: inherit;
+                tab-size: 4;
+            }
+
+            iframe {
+                margin: auto;
+            }
+
+            a.url {
+                word-break: break-all;
+            }
+
+            a:active,
+            a:hover {
+                outline: 0px;
+            }
+
+            .in-text-selection,
+            ::selection {
+                text-shadow: none;
+                background: var(--select-text-bg-color);
+                color: var(--select-text-font-color);
+            }
+
+            #write {
+                margin: 0px auto;
+                height: auto;
+                width: inherit;
+                word-break: normal;
+                overflow-wrap: break-word;
+                position: relative;
+                white-space: normal;
+                overflow-x: visible;
+                padding-top: 36px;
+            }
+
+            #write.first-line-indent p {
+                text-indent: 2em;
+            }
+
+            #write.first-line-indent li p,
+            #write.first-line-indent p * {
+                text-indent: 0px;
+            }
+
+            #write.first-line-indent li {
+                margin-left: 2em;
+            }
+
+            .for-image #write {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            body.typora-export {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .typora-export .footnote-line,
+            .typora-export li,
+            .typora-export p {
+                white-space: pre-wrap;
+            }
+
+            .typora-export .task-list-item input {
+                pointer-events: none;
+            }
+
+            @media screen and (max-width: 500px) {
+                body.typora-export {
+                    padding-left: 0px;
+                    padding-right: 0px;
+                }
+
+                #write {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+
+                .CodeMirror-sizer {
+                    margin-left: 0px !important;
+                }
+
+                .CodeMirror-gutters {
+                    display: none !important;
+                }
+            }
+
+            #write li>figure:last-child {
+                margin-bottom: 0.5rem;
+            }
+
+            #write ol,
+            #write ul {
+                position: relative;
+            }
+
+            img {
+                max-width: 100%;
+                vertical-align: middle;
+                image-orientation: from-image;
+            }
+
+            button,
+            input,
+            select,
+            textarea {
+                color: inherit;
+                font: inherit;
+            }
+
+            input[type="checkbox"],
+            input[type="radio"] {
+                line-height: normal;
+                padding: 0px;
+            }
+
+            *,
+            ::after,
+            ::before {
+                box-sizing: border-box;
+            }
+
+            #write h1,
+            #write h2,
+            #write h3,
+            #write h4,
+            #write h5,
+            #write h6,
+            #write p,
+            #write pre {
+                width: inherit;
+            }
+
+            #write h1,
+            #write h2,
+            #write h3,
+            #write h4,
+            #write h5,
+            #write h6,
+            #write p {
+                position: relative;
+            }
+
+            p {
+                line-height: inherit;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                break-after: avoid-page;
+                break-inside: avoid;
+                orphans: 4;
+            }
+
+            p {
+                orphans: 4;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.6rem;
+            }
+
+            h4 {
+                font-size: 1.4rem;
+            }
+
+            h5 {
+                font-size: 1.2rem;
+            }
+
+            h6 {
+                font-size: 1rem;
+            }
+
+            .md-math-block,
+            .md-rawblock,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            .md-blockmeta {
+                color: rgb(204, 204, 204);
+                font-weight: 700;
+                font-style: italic;
+            }
+
+            a {
+                cursor: pointer;
+            }
+
+            sup.md-footnote {
+                padding: 2px 4px;
+                background-color: rgba(238, 238, 238, 0.7);
+                color: rgb(85, 85, 85);
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            sup.md-footnote a,
+            sup.md-footnote a:hover {
+                color: inherit;
+                text-transform: inherit;
+                text-decoration: inherit;
+            }
+
+            #write input[type="checkbox"] {
+                cursor: pointer;
+                width: inherit;
+                height: inherit;
+            }
+
+            figure {
+                overflow-x: auto;
+                margin: 1.2em 0px;
+                max-width: calc(100% + 16px);
+                padding: 0px;
+            }
+
+            figure>table {
+                margin: 0px;
+            }
+
+            tr {
+                break-inside: avoid;
+                break-after: auto;
+            }
+
+            thead {
+                display: table-header-group;
+            }
+
+            table {
+                border-collapse: collapse;
+                border-spacing: 0px;
+                width: 100%;
+                overflow: auto;
+                break-inside: auto;
+                text-align: left;
+            }
+
+            table.md-table td {
+                min-width: 32px;
+            }
+
+            .CodeMirror-gutters {
+                border-right: 0px;
+                background-color: inherit;
+            }
+
+            .CodeMirror-linenumber {
+                user-select: none;
+            }
+
+            .CodeMirror {
+                text-align: left;
+            }
+
+            .CodeMirror-placeholder {
+                opacity: 0.3;
+            }
+
+            .CodeMirror pre {
+                padding: 0px 4px;
+            }
+
+            .CodeMirror-lines {
+                padding: 0px;
+            }
+
+            div.hr:focus {
+                cursor: none;
+            }
+
+            #write pre {
+                white-space: pre-wrap;
+            }
+
+            #write.fences-no-line-wrapping pre {
+                white-space: pre;
+            }
+
+            #write pre.ty-contain-cm {
+                white-space: normal;
+            }
+
+            .CodeMirror-gutters {
+                margin-right: 4px;
+            }
+
+            .md-fences {
+                font-size: 0.9rem;
+                display: block;
+                break-inside: avoid;
+                text-align: left;
+                overflow: visible;
+                white-space: pre;
+                background: inherit;
+                position: relative !important;
+            }
+
+            .md-fences-adv-panel {
+                width: 100%;
+                margin-top: 10px;
+                text-align: center;
+                padding-top: 0px;
+                padding-bottom: 8px;
+                overflow-x: auto;
+            }
+
+            #write .md-fences.mock-cm {
+                white-space: pre-wrap;
+            }
+
+            .md-fences.md-fences-with-lineno {
+                padding-left: 0px;
+            }
+
+            #write.fences-no-line-wrapping .md-fences.mock-cm {
+                white-space: pre;
+                overflow-x: auto;
+            }
+
+            .md-fences.mock-cm.md-fences-with-lineno {
+                padding-left: 8px;
+            }
+
+            .CodeMirror-line,
+            twitterwidget {
+                break-inside: avoid;
+            }
+
+            .footnotes {
+                opacity: 0.8;
+                font-size: 0.9rem;
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+
+            .footnotes+.footnotes {
+                margin-top: 0px;
+            }
+
+            .md-reset {
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+                outline: 0px;
+                vertical-align: top;
+                background: 0px 0px;
+                text-decoration: none;
+                text-shadow: none;
+                float: none;
+                position: static;
+                width: auto;
+                height: auto;
+                white-space: nowrap;
+                cursor: inherit;
+                -webkit-tap-highlight-color: transparent;
+                line-height: normal;
+                font-weight: 400;
+                text-align: left;
+                box-sizing: content-box;
+                direction: ltr;
+            }
+
+            li div {
+                padding-top: 0px;
+            }
+
+            blockquote {
+                margin: 1rem 0px;
+            }
+
+            li .mathjax-block,
+            li p {
+                margin: 0.5rem 0px;
+            }
+
+            li blockquote {
+                margin: 1rem 0px;
+            }
+
+            li {
+                margin: 0px;
+                position: relative;
+            }
+
+            blockquote> :last-child {
+                margin-bottom: 0px;
+            }
+
+            blockquote> :first-child,
+            li> :first-child {
+                margin-top: 0px;
+            }
+
+            .footnotes-area {
+                color: rgb(136, 136, 136);
+                margin-top: 0.714rem;
+                padding-bottom: 0.143rem;
+                white-space: normal;
+            }
+
+            #write .footnote-line {
+                white-space: pre-wrap;
+            }
+
+            @media print {
+
+                body,
+                html {
+                    border: 1px solid transparent;
+                    height: 99%;
+                    break-after: avoid;
+                    break-before: avoid;
+                    font-variant-ligatures: no-common-ligatures;
+                }
+
+                #write {
+                    margin-top: 0px;
+                    padding-top: 0px;
+                    border-color: transparent !important;
+                }
+
+                .typora-export * {
+                    -webkit-print-color-adjust: exact;
+                }
+
+                .typora-export #write {
+                    break-after: avoid;
+                }
+
+                .typora-export #write::after {
+                    height: 0px;
+                }
+
+                .is-mac table {
+                    break-inside: avoid;
+                }
+
+                .typora-export-show-outline .typora-export-sidebar {
+                    display: none;
+                }
+            }
+
+            .footnote-line {
+                margin-top: 0.714em;
+                font-size: 0.7em;
+            }
+
+            a img,
+            img a {
+                cursor: pointer;
+            }
+
+            pre.md-meta-block {
+                font-size: 0.8rem;
+                min-height: 0.8rem;
+                white-space: pre-wrap;
+                background: rgb(204, 204, 204);
+                display: block;
+                overflow-x: hidden;
+            }
+
+            p>.md-image:only-child:not(.md-img-error) img,
+            p>img:only-child {
+                display: block;
+                margin: auto;
+            }
+
+            #write.first-line-indent p>.md-image:only-child:not(.md-img-error) img {
+                left: -2em;
+                position: relative;
+            }
+
+            p>.md-image:only-child {
+                display: inline-block;
+                width: 100%;
+            }
+
+            #write .MathJax_Display {
+                margin: 0.8em 0px 0px;
+            }
+
+            .md-math-block {
+                width: 100%;
+            }
+
+            .md-math-block:not(:empty)::after {
+                display: none;
+            }
+
+            .MathJax_ref {
+                fill: currentcolor;
+            }
+
+            [contenteditable="true"]:active,
+            [contenteditable="true"]:focus,
+            [contenteditable="false"]:active,
+            [contenteditable="false"]:focus {
+                outline: 0px;
+                box-shadow: none;
+            }
+
+            .md-task-list-item {
+                position: relative;
+                list-style-type: none;
+            }
+
+            .task-list-item.md-task-list-item {
+                padding-left: 0px;
+            }
+
+            .md-task-list-item>input {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                margin-left: -1.2em;
+                margin-top: calc(1em - 10px);
+                border: none;
+            }
+
+            .math {
+                font-size: 1rem;
+            }
+
+            .md-toc {
+                min-height: 3.58rem;
+                position: relative;
+                font-size: 0.9rem;
+                border-radius: 10px;
+            }
+
+            .md-toc-content {
+                position: relative;
+                margin-left: 0px;
+            }
+
+            .md-toc-content::after,
+            .md-toc::after {
+                display: none;
+            }
+
+            .md-toc-item {
+                display: block;
+                color: rgb(65, 131, 196);
+            }
+
+            .md-toc-item a {
+                text-decoration: none;
+            }
+
+            .md-toc-inner:hover {
+                text-decoration: underline;
+            }
+
+            .md-toc-inner {
+                display: inline-block;
+                cursor: pointer;
+            }
+
+            .md-toc-h1 .md-toc-inner {
+                margin-left: 0px;
+                font-weight: 700;
+            }
+
+            .md-toc-h2 .md-toc-inner {
+                margin-left: 2em;
+            }
+
+            .md-toc-h3 .md-toc-inner {
+                margin-left: 4em;
+            }
+
+            .md-toc-h4 .md-toc-inner {
+                margin-left: 6em;
+            }
+
+            .md-toc-h5 .md-toc-inner {
+                margin-left: 8em;
+            }
+
+            .md-toc-h6 .md-toc-inner {
+                margin-left: 10em;
+            }
+
+            @media screen and (max-width: 48em) {
+                .md-toc-h3 .md-toc-inner {
+                    margin-left: 3.5em;
+                }
+
+                .md-toc-h4 .md-toc-inner {
+                    margin-left: 5em;
+                }
+
+                .md-toc-h5 .md-toc-inner {
+                    margin-left: 6.5em;
+                }
+
+                .md-toc-h6 .md-toc-inner {
+                    margin-left: 8em;
+                }
+            }
+
+            a.md-toc-inner {
+                font-size: inherit;
+                font-style: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+            }
+
+            .footnote-line a:not(.reversefootnote) {
+                color: inherit;
+            }
+
+            .md-attr {
+                display: none;
+            }
+
+            .md-fn-count::after {
+                content: ".";
+            }
+
+            code,
+            pre,
+            samp,
+            tt {
+                font-family: var(--monospace);
+            }
+
+            kbd {
+                margin: 0px 0.1em;
+                padding: 0.1em 0.6em;
+                font-size: 0.8em;
+                color: rgb(36, 39, 41);
+                background: rgb(255, 255, 255);
+                border: 1px solid rgb(173, 179, 185);
+                border-radius: 3px;
+                box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+                white-space: nowrap;
+                vertical-align: middle;
+            }
+
+            .md-comment {
+                color: rgb(162, 127, 3);
+                opacity: 0.6;
+                font-family: var(--monospace);
+            }
+
+            code {
+                text-align: left;
+                vertical-align: initial;
+            }
+
+            a.md-print-anchor {
+                white-space: pre !important;
+                border-width: initial !important;
+                border-style: none !important;
+                border-color: initial !important;
+                display: inline-block !important;
+                position: absolute !important;
+                width: 1px !important;
+                right: 0px !important;
+                outline: 0px !important;
+                background: 0px 0px !important;
+                text-decoration: initial !important;
+                text-shadow: initial !important;
+            }
+
+            .os-windows.monocolor-emoji .md-emoji {
+                font-family: "Segoe UI Symbol", sans-serif;
+            }
+
+            .md-diagram-panel>svg {
+                max-width: 100%;
+            }
+
+            [lang="flow"] svg,
+            [lang="mermaid"] svg {
+                max-width: 100%;
+                height: auto;
+            }
+
+            [lang="mermaid"] .node text {
+                font-size: 1rem;
+            }
+
+            table tr th {
+                border-bottom: 0px;
+            }
+
+            video {
+                max-width: 100%;
+                display: block;
+                margin: 0px auto;
+            }
+
+            iframe {
+                max-width: 100%;
+                width: 100%;
+                border: none;
+            }
+
+            .highlight td,
+            .highlight tr {
+                border: 0px;
+            }
+
+            mark {
+                background: rgb(255, 255, 0);
+                color: rgb(0, 0, 0);
+            }
+
+            .md-html-inline .md-plain,
+            .md-html-inline strong,
+            mark .md-inline-math,
+            mark strong {
+                color: inherit;
+            }
+
+            .md-expand mark .md-meta {
+                opacity: 0.3 !important;
+            }
+
+            mark .md-meta {
+                color: rgb(0, 0, 0);
+            }
+
+            @media print {
+
+                .typora-export h1,
+                .typora-export h2,
+                .typora-export h3,
+                .typora-export h4,
+                .typora-export h5,
+                .typora-export h6 {
+                    break-inside: avoid;
+                }
+            }
+
+            .md-diagram-panel .messageText {
+                stroke: none !important;
+            }
+
+            .md-diagram-panel .start-state {
+                fill: var(--node-fill);
+            }
+
+            .md-diagram-panel .edgeLabel rect {
+                opacity: 1 !important;
+            }
+
+            .md-fences.md-fences-math {
+                font-size: 1em;
+            }
+
+            .md-fences-advanced:not(.md-focus) {
+                padding: 0px;
+                white-space: nowrap;
+                border: 0px;
+            }
+
+            .md-fences-advanced:not(.md-focus) {
+                background: inherit;
+            }
+
+            .typora-export-show-outline .typora-export-content {
+                max-width: 1440px;
+                margin: auto;
+                display: flex;
+                flex-direction: row;
+            }
+
+            .typora-export-sidebar {
+                width: 300px;
+                font-size: 0.8rem;
+                margin-top: 80px;
+                margin-right: 18px;
+            }
+
+            .typora-export-show-outline #write {
+                --webkit-flex: 2;
+                flex: 2 1 0%;
+            }
+
+            .typora-export-sidebar .outline-content {
+                position: fixed;
+                top: 0px;
+                max-height: 100%;
+                overflow: hidden auto;
+                padding-bottom: 30px;
+                padding-top: 60px;
+                width: 300px;
+            }
+
+            @media screen and (max-width: 1024px) {
+
+                .typora-export-sidebar,
+                .typora-export-sidebar .outline-content {
+                    width: 240px;
+                }
+            }
+
+            @media screen and (max-width: 800px) {
+                .typora-export-sidebar {
+                    display: none;
+                }
+            }
+
+            .outline-content li,
+            .outline-content ul {
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 0px;
+                padding-right: 0px;
+                list-style: none;
+            }
+
+            .outline-content ul {
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+
+            .outline-content strong {
+                font-weight: 400;
+            }
+
+            .outline-expander {
+                width: 1rem;
+                height: 1.42857rem;
+                position: relative;
+                display: table-cell;
+                vertical-align: middle;
+                cursor: pointer;
+                padding-left: 4px;
+            }
+
+            .outline-expander::before {
+                content: "";
+                position: relative;
+                font-family: Ionicons;
+                display: inline-block;
+                font-size: 8px;
+                vertical-align: middle;
+            }
+
+            .outline-item {
+                padding-top: 3px;
+                padding-bottom: 3px;
+                cursor: pointer;
+            }
+
+            .outline-expander:hover::before {
+                content: "";
+            }
+
+            .outline-h1>.outline-item {
+                padding-left: 0px;
+            }
+
+            .outline-h2>.outline-item {
+                padding-left: 1em;
+            }
+
+            .outline-h3>.outline-item {
+                padding-left: 2em;
+            }
+
+            .outline-h4>.outline-item {
+                padding-left: 3em;
+            }
+
+            .outline-h5>.outline-item {
+                padding-left: 4em;
+            }
+
+            .outline-h6>.outline-item {
+                padding-left: 5em;
+            }
+
+            .outline-label {
+                cursor: pointer;
+                display: table-cell;
+                vertical-align: middle;
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .outline-label:hover {
+                text-decoration: underline;
+            }
+
+            .outline-item:hover {
+                border-color: rgb(245, 245, 245);
+                background-color: var(--item-hover-bg-color);
+            }
+
+            .outline-item:hover {
+                margin-left: -28px;
+                margin-right: -28px;
+                border-left: 28px solid transparent;
+                border-right: 28px solid transparent;
+            }
+
+            .outline-item-single .outline-expander::before,
+            .outline-item-single .outline-expander:hover::before {
+                display: none;
+            }
+
+            .outline-item-open>.outline-item>.outline-expander::before {
+                content: "";
+            }
+
+            .outline-children {
+                display: none;
+            }
+
+            .info-panel-tab-wrapper {
+                display: none;
+            }
+
+            .outline-item-open>.outline-children {
+                display: block;
+            }
+
+            .typora-export .outline-item {
+                padding-top: 1px;
+                padding-bottom: 1px;
+            }
+
+            .typora-export .outline-item:hover {
+                margin-right: -8px;
+                border-right: 8px solid transparent;
+            }
+
+            .typora-export .outline-expander::before {
+                content: "+";
+                font-family: inherit;
+                top: -1px;
+            }
+
+            .typora-export .outline-expander:hover::before,
+            .typora-export .outline-item-open>.outline-item>.outline-expander::before {
+                content: "−";
+            }
+
+            .typora-export-collapse-outline .outline-children {
+                display: none;
+            }
+
+            .typora-export-collapse-outline .outline-item-open>.outline-children,
+            .typora-export-no-collapse-outline .outline-children {
+                display: block;
+            }
+
+            .typora-export-no-collapse-outline .outline-expander::before {
+                content: "" !important;
+            }
+
+            .typora-export-show-outline .outline-item-active>.outline-item .outline-label {
+                font-weight: 700;
+            }
+
+            .md-inline-math-container mjx-container {
+                zoom: 0.95;
+            }
+
+
+            :root {
+                --side-bar-bg-color: #fafafa;
+                --control-text-color: #777;
+            }
+
+            @include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+            /* open-sans-regular - latin-ext_latin */
+            /* open-sans-italic - latin-ext_latin */
+            /* open-sans-700 - latin-ext_latin */
+            /* open-sans-700italic - latin-ext_latin */
+            html {
+                font-size: 16px;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            body {
+                font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+                color: rgb(51, 51, 51);
+                line-height: 1.6;
+            }
+
+            #write {
+                max-width: 860px;
+                margin: 0 auto;
+                padding: 30px;
+                padding-bottom: 100px;
+            }
+
+            @media only screen and (min-width: 1400px) {
+                #write {
+                    max-width: 1024px;
+                }
+            }
+
+            @media only screen and (min-width: 1800px) {
+                #write {
+                    max-width: 1200px;
+                }
+            }
+
+            #write>ul:first-child,
+            #write>ol:first-child {
+                margin-top: 30px;
+            }
+
+            a {
+                color: #4183C4;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                position: relative;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                font-weight: bold;
+                line-height: 1.4;
+                cursor: text;
+            }
+
+            h1:hover a.anchor,
+            h2:hover a.anchor,
+            h3:hover a.anchor,
+            h4:hover a.anchor,
+            h5:hover a.anchor,
+            h6:hover a.anchor {
+                text-decoration: none;
+            }
+
+            h1 tt,
+            h1 code {
+                font-size: inherit;
+            }
+
+            h2 tt,
+            h2 code {
+                font-size: inherit;
+            }
+
+            h3 tt,
+            h3 code {
+                font-size: inherit;
+            }
+
+            h4 tt,
+            h4 code {
+                font-size: inherit;
+            }
+
+            h5 tt,
+            h5 code {
+                font-size: inherit;
+            }
+
+            h6 tt,
+            h6 code {
+                font-size: inherit;
+            }
+
+            h1 {
+                font-size: 2.25em;
+                line-height: 1.2;
+                border-bottom: 1px solid #eee;
+            }
+
+            h2 {
+                font-size: 1.75em;
+                line-height: 1.225;
+                border-bottom: 1px solid #eee;
+            }
+
+            /*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+            h3 {
+                font-size: 1.5em;
+                line-height: 1.43;
+            }
+
+            h4 {
+                font-size: 1.25em;
+            }
+
+            h5 {
+                font-size: 1em;
+            }
+
+            h6 {
+                font-size: 1em;
+                color: #777;
+            }
+
+            p,
+            blockquote,
+            ul,
+            ol,
+            dl,
+            table {
+                margin: 0.8em 0;
+            }
+
+            li>ol,
+            li>ul {
+                margin: 0 0;
+            }
+
+            hr {
+                height: 2px;
+                padding: 0;
+                margin: 16px 0;
+                background-color: #e7e7e7;
+                border: 0 none;
+                overflow: hidden;
+                box-sizing: content-box;
+            }
+
+            li p.first {
+                display: inline-block;
+            }
+
+            ul,
+            ol {
+                padding-left: 30px;
+            }
+
+            ul:first-child,
+            ol:first-child {
+                margin-top: 0;
+            }
+
+            ul:last-child,
+            ol:last-child {
+                margin-bottom: 0;
+            }
+
+            blockquote {
+                border-left: 4px solid #dfe2e5;
+                padding: 0 15px;
+                color: #777777;
+            }
+
+            blockquote blockquote {
+                padding-right: 0;
+            }
+
+            table {
+                padding: 0;
+                word-break: initial;
+            }
+
+            table tr {
+                border: 1px solid #dfe2e5;
+                margin: 0;
+                padding: 0;
+            }
+
+            table tr:nth-child(2n),
+            thead {
+                background-color: #f8f8f8;
+            }
+
+            table th {
+                font-weight: bold;
+                border: 1px solid #dfe2e5;
+                border-bottom: 0;
+                margin: 0;
+                padding: 6px 13px;
+            }
+
+            table td {
+                border: 1px solid #dfe2e5;
+                margin: 0;
+                padding: 6px 13px;
+            }
+
+            table th:first-child,
+            table td:first-child {
+                margin-top: 0;
+            }
+
+            table th:last-child,
+            table td:last-child {
+                margin-bottom: 0;
+            }
+
+            .CodeMirror-lines {
+                padding-left: 4px;
+            }
+
+            .code-tooltip {
+                box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+                border-top: 1px solid #eef2f2;
+            }
+
+            .md-fences,
+            code,
+            tt {
+                border: 1px solid #e7eaed;
+                background-color: #f8f8f8;
+                border-radius: 3px;
+                padding: 0;
+                padding: 2px 4px 0px 4px;
+                font-size: 0.9em;
+            }
+
+            code {
+                background-color: #f3f4f4;
+                padding: 0 2px 0 2px;
+            }
+
+            .md-fences {
+                margin-bottom: 15px;
+                margin-top: 15px;
+                padding-top: 8px;
+                padding-bottom: 6px;
+            }
+
+
+            .md-task-list-item>input {
+                margin-left: -1.3em;
+            }
+
+            @media print {
+                html {
+                    font-size: 13px;
+                }
+
+                table,
+                pre {
+                    page-break-inside: avoid;
+                }
+
+                pre {
+                    word-wrap: break-word;
+                }
+            }
+
+            .md-fences {
+                background-color: #f8f8f8;
+            }
+
+            #write pre.md-meta-block {
+                padding: 1rem;
+                font-size: 85%;
+                line-height: 1.45;
+                background-color: #f7f7f7;
+                border: 0;
+                border-radius: 3px;
+                color: #777777;
+                margin-top: 0 !important;
+            }
+
+            .mathjax-block>.code-tooltip {
+                bottom: .375rem;
+            }
+
+            .md-mathjax-midline {
+                background: #fafafa;
+            }
+
+            #write>h3.md-focus:before {
+                left: -1.5625rem;
+                top: .375rem;
+            }
+
+            #write>h4.md-focus:before {
+                left: -1.5625rem;
+                top: .285714286rem;
+            }
+
+            #write>h5.md-focus:before {
+                left: -1.5625rem;
+                top: .285714286rem;
+            }
+
+            #write>h6.md-focus:before {
+                left: -1.5625rem;
+                top: .285714286rem;
+            }
+
+            .md-image>.md-meta {
+                /*border: 1px solid #ddd;*/
+                border-radius: 3px;
+                padding: 2px 0px 0px 4px;
+                font-size: 0.9em;
+                color: inherit;
+            }
+
+            .md-tag {
+                color: #a7a7a7;
+                opacity: 1;
+            }
+
+            .md-toc {
+                margin-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .sidebar-tabs {
+                border-bottom: none;
+            }
+
+            #typora-quick-open {
+                border: 1px solid #ddd;
+                background-color: #f8f8f8;
+            }
+
+            #typora-quick-open-item {
+                background-color: #FAFAFA;
+                border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+                border-style: solid;
+                border-width: 1px;
+            }
+
+            /** focus mode */
+            .on-focus-mode blockquote {
+                border-left-color: rgba(85, 85, 85, 0.12);
+            }
+
+            header,
+            .context-menu,
+            .megamenu-content,
+            footer {
+                font-family: "Segoe UI", "Arial", sans-serif;
+            }
+
+            .file-node-content:hover .file-node-icon,
+            .file-node-content:hover .file-node-open-state {
+                visibility: visible;
+            }
+
+            .mac-seamless-mode #typora-sidebar {
+                background-color: #fafafa;
+                background-color: var(--side-bar-bg-color);
+            }
+
+            .md-lang {
+                color: #b4654d;
+            }
+
+            /*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+            #md-notification .btn {
+                border: 0;
+            }
+
+            .dropdown-menu .divider {
+                border-color: #e5e5e5;
+                opacity: 0.4;
+            }
+
+            .ty-preferences .window-content {
+                background-color: #fafafa;
+            }
+
+            .ty-preferences .nav-group-item.active {
+                color: white;
+                background: #999;
+            }
+
+            .menu-item-container a.menu-style-btn {
+                background-color: #f5f8fa;
+                background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0));
+            }
+
+
+            .typora-export li,
+            .typora-export p,
+            .typora-export,
+            .footnote-line {
+                white-space: normal;
+            }
+        </style>
+        <title>000000000</title>
+</head>
+
+<body class='typora-export os-windows'>
+    <ul class="ngbar">
+        <li class="ngbar_item"><a href="#" style="width: 72px;" onclick="showDialog('Visprect: Hi!');"><img src="res/images/parts.png"></a></li>
+        <li class="ngbar_item"><a href="#第一单元">U1</a></li>
+        <li class="ngbar_item"><a href="#第二单元">U2</a></li>
+        <li class="ngbar_item"><a href="#第三单元">U3</a></li>
+        <li class="ngbar_item"><a href="#" onclick="showDialog('Coming Soon!');">COMING SOON</a></li>
+    </ul>
+
+    <div class='typora-export-content'>
+        <div id='write' class=''>
+            <div class='md-toc' mdtype='toc' style="display: none;">
+                <p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1"
+                        data-ref="n1239"><a class="md-toc-inner" href="#第一单元">第一单元</a></span><span role="listitem"
+                        class="md-toc-item md-toc-h2" data-ref="n8"><a class="md-toc-inner"
+                            href="#reading-a-page-6">Reading A (Page 6)</a></span><span role="listitem"
+                        class="md-toc-item md-toc-h3" data-ref="n10"><a class="md-toc-inner" href="#new-words-1">New
+                            Words</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n125"><a
+                            class="md-toc-inner" href="#phrases--expressions-1">Phrases &amp;
+                            Expressions</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n163"><a
+                            class="md-toc-inner" href="#proper-names">Proper Names</a></span><span role="listitem"
+                        class="md-toc-item md-toc-h2" data-ref="n196"><a class="md-toc-inner"
+                            href="#reading-b-page-12">Reading B (Page 12)</a></span><span role="listitem"
+                        class="md-toc-item md-toc-h3" data-ref="n209"><a class="md-toc-inner" href="#new-words-2">New
+                            Words</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n285"><a
+                            class="md-toc-inner" href="#phrases--expressions-2">Phrases &amp;
+                            Expressions</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n324"><a
+                            class="md-toc-inner" href="#第二单元">第二单元</a></span><span role="listitem"
+                        class="md-toc-item md-toc-h2" data-ref="n327"><a class="md-toc-inner"
+                            href="#reading-a-page-30">Reading A (Page 30)</a></span><span role="listitem"
+                        class="md-toc-item md-toc-h3" data-ref="n447"><a class="md-toc-inner" href="#new-words-3">New
+                            Words</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n477"><a
+                            class="md-toc-inner" href="#phrases--expressions-3">Phrases &amp;
+                            Expressions</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n449"><a
+                            class="md-toc-inner" href="#reading-b-page-36">Reading B (Page 36)</a></span><span
+                        role="listitem" class="md-toc-item md-toc-h3" data-ref="n528"><a class="md-toc-inner"
+                            href="#new-words-4">New Words</a></span><span role="listitem" class="md-toc-item md-toc-h3"
+                        data-ref="n541"><a class="md-toc-inner" href="#phrases--expressions-4">Phrases &amp;
+                            Expressions</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n458"><a
+                            class="md-toc-inner" href="#第三单元">第三单元</a></span><span role="listitem"
+                        class="md-toc-item md-toc-h2" data-ref="n470"><a class="md-toc-inner"
+                            href="#reading-a-page-54">Reading A (Page 54)</a></span><span role="listitem"
+                        class="md-toc-item md-toc-h3" data-ref="n551"><a class="md-toc-inner" href="#new-words-5">New
+                            Words</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n564"><a
+                            class="md-toc-inner" href="#phrases--expressions-5">Phrases &amp;
+                            Expressions</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n472"><a
+                            class="md-toc-inner" href="#reading-b-page-60">Reading B (Page 60)</a></span><span
+                        role="listitem" class="md-toc-item md-toc-h3" data-ref="n574"><a class="md-toc-inner"
+                            href="#new-words-6">New Words</a></span><span role="listitem" class="md-toc-item md-toc-h3"
+                        data-ref="n587"><a class="md-toc-inner" href="#phrases--expressions-6">Phrases &amp;
+                            Expressions</a></span></p>
+            </div>
+            <h1 id='第一单元'><span>第一单元</span></h1>
+            <h2 id='reading-a-page-6'><span>Reading A (Page 6)</span></h2>
+            <h3 id='new-words-1'><span>New Words</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>词汇</span></th>
+                            <th><span>词性</span></th>
+                            <th><span>音标</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>gelato</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>冰淇淋</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>clown</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>丑角，小丑</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>pitch-black</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>漆黑的，墨黑的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>couch</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>长沙发椅，睡椅</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>surfer</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>冲浪运动员；漫游者</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Zimbabwean</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>津巴布韦的</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>津巴布韦；津巴布韦人</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>cocktail</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>鸡尾酒</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>psychopath</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>精神病患者</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>encounter</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>相遇，碰见</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>遭遇；不期而遇</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>alter</span></td>
+                            <td><span>vt, vi</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>改变；更改</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>course</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>路线；课程；一道菜</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>befriend</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>帮助；以朋友的方式对待；照顾</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>hostel</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>旅社，招待所</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>liberate</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>解放；释放</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>concrete</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>具体的，实在的，实际的；混凝土制的</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>混凝土</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>monotonous</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>单调的；枯燥无味的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>genuinely</span></td>
+                            <td><span>ad</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>真诚的；真正的</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+            <h3 id='phrases--expressions-1'><span>Phrases &amp; Expressions</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>短语</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>be out of touch with</span></td>
+                            <td><span>与……失去联系</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>keep in mind</span></td>
+                            <td><span>记住；记在心里</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>come across</span></td>
+                            <td><span>遇到；遇见；碰到</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>be reluctant to</span></td>
+                            <td><span>不愿意；不情愿</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>to a certain extent</span></td>
+                            <td><span>在一定程度上</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>in the course of</span></td>
+                            <td><span>在……的过程中</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>so far</span></td>
+                            <td><span>到目前为止</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>in concrete</span></td>
+                            <td><span>具体地</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+            <h3 id='proper-names'><span>Proper Names</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>专有名词</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>Leeds</span></td>
+                            <td><span>利兹（英格兰北部城市)</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Coolio</span></td>
+                            <td><span>库里奥（人名）</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Venice</span></td>
+                            <td><span>威尼斯（意大利东北部的港埠)</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>couch surfer</span></td>
+                            <td><span>沙发客</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Bordeaux</span></td>
+                            <td><span>波尔多（位于巴黎到马德里的铁路主干线上的一个城市）</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Kuala Lumpur</span></td>
+                            <td><span>吉隆坡（马来西亚首都）</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Nice</span></td>
+                            <td><span>尼斯（法国港市）</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Melbourne</span></td>
+                            <td><span>墨尔本市</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+            <h2 id='reading-b-page-12'><span>Reading B (Page 12)</span></h2>
+            <h3 id='new-words-2'><span>New Words</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>词汇</span></th>
+                            <th><span>词性</span></th>
+                            <th><span>音标</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>canal</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>运河</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>luxury</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>奢侈；豪化</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>profundity</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>深；深奥</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>erode</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>侵蚀；腐蚀</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>profound</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>深的；深奥的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>alley</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>小巷；弄堂；胡同</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>artificial</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>非自然的；非真实的；人造的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>deliberately</span></td>
+                            <td><span>ad</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>故意地；存心地；慎重地；谨慎地</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>Venetian</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>威尼斯人；威尼斯语</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>威尼斯的；威尼斯人的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>indulge</span></td>
+                            <td><span>vi</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>放纵；放任</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>self-consolation</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>自我安慰</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>trait</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>特性；特点</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>unpredictable</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>不可预言的；不可预测的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>yearning</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>渴望的；思念的；怀念的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>narrative</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>叙事的，叙事体的</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>故事；叙述</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+            <h3 id='phrases--expressions-2'><span>Phrases &amp; Expressions</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>短语</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>in terms of</span></td>
+                            <td><span>根据：按照；谈及；用……的字眼</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>bear similarity to</span></td>
+                            <td><span>与……相似；与……类似</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>combine ... with ...</span></td>
+                            <td><span>联合；结合；连接</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>every now and then</span></td>
+                            <td><span>偶尔；不时地</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>by accident</span></td>
+                            <td><span>偶然地；意外地</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+            <h1 id='第二单元'><span>第二单元</span></h1>
+            <h2 id='reading-a-page-30'><span>Reading A (Page 30)</span></h2>
+            <h3 id='new-words-3'><span>New Words</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>词汇</span></th>
+                            <th><span>词性</span></th>
+                            <th><span>音标</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>era</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>时代；年代；纪元</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>tremendous</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>巨大的；想大的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>innovation</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>（新事物、思想或方法的）创造；创新；新方法</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>stable</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>稳定的；牢固的；稳重的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>transmitter</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>(无线电或电视信号的）发射机；传送者</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>distraction</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>使人分心的事</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>optional</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>可选择的；选修的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>psychology</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>心理学；心理</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>consumption</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>消费、消耗</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>sociable</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>好交际的；友好的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>obstacle</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>障碍；阻碍</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>odd</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>奇怪的；怪异的；反常的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>excrement</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>粪便；排泄物</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>insect</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>昆虫</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>disturb</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>打扰；干扰；妨碍</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>ecological</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>生态的；生态学的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>pose</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>造成（威胁、问题等)；引起；产生</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>threat</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>威胁；恐吓</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>soil</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>土壤</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>snapshot</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>拍快照</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>casual</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>不经意的；漫不经心的；随意的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>gender</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>性别</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>comprehensive</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>详尽的；综合性的；所有的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>emerge</span></td>
+                            <td><span>vi</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>vi.出现，浮现；露出真相；显露</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>embrace</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>拥抱：欣然接受（思想、建议等)</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>拥抱，怀抱</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>optimistic</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>乐观的；抱乐观看法的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>pessimistic</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>悲观的；悲观主义的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>optimism</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>乐观；乐观主义</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>pessimism</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>悲观；悲观情绪；悲观主义</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+            <h3 id='phrases--expressions-3'><span>Phrases &amp; Expressions</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>短语</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>see ... as ...</span></td>
+                            <td><span>把……视为</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>relate to</span></td>
+                            <td><span>与……有关</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>refer to</span></td>
+                            <td><span>指……;查阅</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>a type of</span></td>
+                            <td><span>一种</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <h2 id='reading-b-page-36'><span>Reading B (Page 36)</span></h2>
+            <h3 id='new-words-4'><span>New Words</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>词汇</span></th>
+                            <th><span>词性</span></th>
+                            <th><span>音标</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>voyage</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>旅程；旅行，航海，航空</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>occasional</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>偶尔的，不红常的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>castoff</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>废弃物</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>被丢弃</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>bargain</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>特价商品；便宜货交易；契约，协定</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>vi</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>讨价还价</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>shift</span></td>
+                            <td><span>vt, vi</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>改变；去掉</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>转移，转换；变迁，变化；轮班</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>expat</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>移居国外者</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>v</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>移居国外；放逐</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>furnish</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>布置：装修（房屋）；供应</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>pot</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>锅；罐；陶盆</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>pan</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>平底锅</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>cutlery</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>刀具，刀叉</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>discard</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>丢弃，抛弃；解雇</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>被抛弃的人或物；丢弃，抛弃</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>benefactor</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>恩人；捐助者；施主</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>noble</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>高尚的；高贵的：表现出崇高的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>trench</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>战壕；沟，渠</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>elegant</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>优美的；优雅的；高贵的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>semi-detached</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>半独立的；双拼的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>villa</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>别墅，公馆</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>recession</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>经济衰退，不景气</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>slash</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>大幅削减；砍，劈；严厉批评</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>council</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>委员会；市政（或地方管理)服务机构</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>patrol</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>巡逻，巡查；巡逻队</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>vt, vi</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>巡逻，巡查</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>investigative</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>研究的；调查性质的</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+            <h3 id='phrases--expressions-4'><span>Phrases &amp; Expressions</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>短语</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>cast off</span></td>
+                            <td><span>解缆；解船；解缆出航；摆脱</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>apart from</span></td>
+                            <td><span>除了……之外</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>pass on</span></td>
+                            <td><span>传递</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>throw out</span></td>
+                            <td><span>扔掉；赶走；开除</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+            <h1 id='第三单元'><span>第三单元</span></h1>
+            <h2 id='reading-a-page-54'><span>Reading A (Page 54)</span></h2>
+            <h3 id='new-words-5'><span>New Words</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>词汇</span></th>
+                            <th><span>词性</span></th>
+                            <th><span>音标</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>arable</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>适于耕种的</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>耕地</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>tax</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>使负重担；消耗精力；向……征税</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>税，税额；负担</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>ongoing</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>不间断的，进行的；前进的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>drought</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>旱灾；干旱（时期），旱季</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>billion</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>十亿</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>priority</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>优先考虑的事；优先；（时间、顺序上的）先，前</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>donate</span></td>
+                            <td><span>vt, vi</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>捐赠；献（血）</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>捐赠；捐献</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>excess</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>额外的，过量的</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>超过；超额</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>essential</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>必要的；本质的；基本的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>commodity</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>商品；日用品；大宗商品</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>salty</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>咸的；含盐的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>adequate</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>足够的；恰当的；差强人意的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>sanitation</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>卫生系统或设备；卫生措施</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>preventable</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>可阻止的，可预防的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>waterborne</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>水传播的；水运的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>insufficient</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>不足的，不够的；亏短的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>contamination</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>污染；弄脏；毒害；玷污</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>projection</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>预测；规划，设计</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>peak</span></td>
+                            <td><span>vi</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>达到高峰，达到最大值</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>山峰：最高点</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>boom</span></td>
+                            <td><span>vi</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>快速发展；暴涨</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>繁荣：激增</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>cohort</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>一群人；同伙；支持者</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>humanity</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>人类；人性；人文学科</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>framework</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>框架；构架；（体系的)结构</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>dependent</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>依赖的；依靠的</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>受抚养人；依赖他人者</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+            <h3 id='phrases--expressions-5'><span>Phrases &amp; Expressions</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>短语</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>result in</span></td>
+                            <td><span>引起，导致；以……为结局</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>contribute to</span></td>
+                            <td><span>有助于；贡献（文中意为“造成、导致”）</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>baby boomer</span></td>
+                            <td><span>婴儿潮出生的一代人</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>die off</span></td>
+                            <td><span>相继死去，先后死去；(温度)降下来</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>force sb.to do sth.</span></td>
+                            <td><span>迫使某人做某事</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+            <h2 id='reading-b-page-60'><span>Reading B (Page 60)</span></h2>
+            <h3 id='new-words-6'><span>New Words</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>词汇</span></th>
+                            <th><span>词性</span></th>
+                            <th><span>音标</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>advocate</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>拥护；支持；提倡</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>拥护者；支持者；提倡者；辩护律师</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>carbon</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>碳；复写纸</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>concept</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>概念；观念</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>coherent</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>合乎逻辑的；有条理的；清楚易懂的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>pursuit</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>追求；追赶；跟踪：追捕</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>sustainable</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>可持续的；合理利用的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>conform</span></td>
+                            <td><span>v</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>顺从，顺应；遵守，服从（规则、法律等）；相一致；相吻合</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>charger</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>充电器</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>console</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>（机器、电子设备等的）控制台，操纵台，仪表板</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>v</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>安慰；抚慰；慰藉</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>stereo</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>立体声音响</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>incandescent</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>白炽的；十分明亮的；耀眼的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>tap</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>水龙头；轻拍</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>v</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>轻敲；轻拍</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>leak</span></td>
+                            <td><span>v</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>渗漏；泄漏；泄露，透露</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>漏洞；缝隙；透露</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>recyclable</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>可回收利用的；可再循环的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>chopstick</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>筷子</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>disposable</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>用后即丢弃的；一次性的</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>degrade</span></td>
+                            <td><span>v</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>降解；降低；(使)退化；削弱（质量）</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>option</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>可选择的事物；选择；选择权；选修课</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>swap</span></td>
+                            <td><span>v</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>交换（东西）交换（工作）；用……替换；掉换</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>交换；交换物</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>moderate</span></td>
+                            <td><span>a</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>适度的；中等的；温和的；适中的</span></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><span>v</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>缓和；使适中</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>ventilate</span></td>
+                            <td><span>v</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>通风：通气;公开表达（感情或意见）</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>renovate</span></td>
+                            <td><span>vt</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>修复；翻新；重新粉刷</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>formaldehyde</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>甲醛；福尔马林</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>benzene</span></td>
+                            <td><span>n</span></td>
+                            <td>&nbsp;</td>
+                            <td><span>苯</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+            <h3 id='phrases--expressions-6'><span>Phrases &amp; Expressions</span></h3>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span>短语</span></th>
+                            <th><span>释义</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>be aware of</span></td>
+                            <td><span>意识到，知道</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>be coherent with</span></td>
+                            <td><span>与……一致；与……连贯</span></td>
+                        </tr>
+                        <tr>
+                            <td><span>sort out</span></td>
+                            <td><span>分类；整理；解决（问题）；清理</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </figure>
+            <p>&nbsp;</p>
+        </div>
+    </div>
+</body>
+
+</html>
